@@ -1,0 +1,51 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+	  <div class="note note-success">
+	    <div class="text-black"><h2>{{model.paymentsTotal}}</h2></div><small class="text-black"><b>TOTAL</b></small> <small class="text-green"><u>PAYMENTS</u></small>
+	  </div>
+	</div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+	  <div class="note note-success">
+	    {{#if model.payments}}
+	    <h4>Latest Payouts</h4>
+	    <div class="table-responsive">
+		  <table class="table table-condensed table-striped">
+		    <thead>
+			  <tr>
+			    <th>Time</th>
+			    <th>Amount</th>
+			    <th>Address</th>
+			    <th>Tx ID</th>
+			  </tr>
+		    </thead>
+		    <tbody>
+			  {{#each model.payments as |tx|}}
+			    <tr>
+				  <td>{{format-date-locale tx.timestamp}}</td>
+				  <td>{{format-number tx.formatAmount}}</td>
+				  <td>
+				    <a href="https://expedition.dev/address/{{tx.address}}" class="hash" rel="nofollow" target="_blank">{{tx.address}}</a>
+				  </td>
+				  <td>
+				    <a href="https://expedition.dev/tx/{{tx.tx}}" class="hash" rel="nofollow" target="_blank">{{format-tx tx.tx}}</a>
+				  </td>
+			    </tr>
+			  {{/each}}
+		    </tbody>
+		  </table>
+	    </div>
+	    {{else}}
+	    <h3>No payouts yet</h3>
+	    {{/if}}
+      </div>
+	</div>
+  </div>
+</div>

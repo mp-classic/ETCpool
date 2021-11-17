@@ -1,0 +1,26 @@
+<br>
+  <div class="row">
+  {{#each-in model.luck as |total row|}}
+    <div class="col-xs-6 col-md-3">
+	  <div class="note note-success">
+	    <div class="text-black"><h2>{{total}}</h2></div><small class="text-black"><b>TOTAL</b></small> <small class="text-green"><u>BLOCKS</u></small>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-3">
+	  <div class="note note-success">
+	    <div class="text-black"><h2>{{format-number row.luck style='percent'}}</h2></div><small class="text-black"><b>SHARES /</b></small> <small class="text-green"><u> DIFF</u></small>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-3">
+	  <div class="note note-success">
+	    <div class="text-black"><h2>{{format-number row.uncleRate style='percent'}}</h2></div><small class="text-black"><b>UNCLE</b></small> <small class="text-green"><u>RATE</u></small>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-3">
+	  <div class="note note-success">
+	    <div class="text-black"><h2>{{format-number row.orphanRate style='percent'}}</h2></div><small class="text-black"><b>OPRPHAN</b></small> <small class="text-green"><u>RATE</u></small>
+	  </div>
+	</div>
+  {{/each-in}}
+  </div>
+

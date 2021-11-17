@@ -1,0 +1,54 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-6">
+	  <div class="note note-success">
+	   <center>
+	    <div class="text-black"><h2>{{format-hashrate model.hashrate}}</h2></div><small class="text-black"><b>TOTAL</b></small> <small class="text-green"><u>HASHRATE</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-6">
+	  <div class="note note-success">
+	   <center>
+	    <div class="text-black"><h2>{{model.minersTotal}}</h2></div><small class="text-black"><b>TOTAL</b></small> <small class="text-green"><u>MINERS</u></small>
+	   </center>
+	  </div>
+	</div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+	  <div class="note note-success">
+	    {{#if model.miners}}
+	    <h4>Miners</h4>
+	    <div class="table-responsive">
+		  <table class="table table-condensed table-striped">
+		    <thead>
+			  <tr>
+			    <th>Login</th>
+			    <th>Hashrate</th>
+			    <th>Last Beat</th>
+			  </tr>
+		    </thead>
+		    <tbody>
+			  {{#each model.miners as |m|}}
+			  <tr class="{{if m.offline "warning"}}">
+			    <td>{{#link-to 'account' m.login class='hash'}}{{m.login}}{{/link-to}}</td>
+			    <td>{{format-hashrate m.hr}}</td>
+			    <td>{{format-date-locale m.lastBeat}}</td>
+			  </tr>
+			  {{/each}}
+		    </tbody>
+		  </table>
+	    </div>
+	    {{else}}
+	    <h3>No miners</h3>
+	    {{/if}}
+	  </div>
+    </div>
+  </div>
+</div>

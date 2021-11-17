@@ -1,0 +1,70 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+	  <div class="note note-success">
+		<p class="lead">Full block rewards including TX fees and uncle rewards.</p>
+		<small class="text-green">
+		  Block maturity requires up to 60 blocks.
+		</small>
+	  </div>
+	</div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 pull-right">
+	  <div class="note note-success">
+	   <center>
+	    <h3>SHARES and DIFFICULTY</h3>
+	    {{high-charts mode=stockChart chartOptions=chartOptions content=chartData}}
+	   </center>
+	  </div>
+	</div>
+    {{#each-in model.luck as |total row|}}
+    <div class="col-xs-6 col-md-3">
+	  <div class="note note-success">
+	   <center>
+	    <div class="text-black"><h2>{{total}}</h2></div><small class="text-black"><b>TOTAL</b></small> <small class="text-green"><u>BLOCKS</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-3">
+	  <div class="note note-success">
+	   <center>
+	    <div class="text-black"><h2>{{format-number row.luck style='percent'}}</h2></div><small class="text-black"><b>SHARES /</b></small> <small class="text-green"><u> DIFF</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-3">
+	  <div class="note note-success">
+	   <center>
+	    <div class="text-black"><h2>{{format-number row.uncleRate style='percent'}}</h2></div><small class="text-black"><b>UNCLE</b></small> <small class="text-green"><u>RATE</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-3">
+	  <div class="note note-success">
+	   <center>
+	    <div class="text-black"><h2>{{format-number row.orphanRate style='percent'}}</h2></div><small class="text-black"><b>OPRPHAN</b></small> <small class="text-green"><u>RATE</u></small>
+	   </center>
+	  </div>
+	</div>
+    {{/each-in}}
+  </div>
+  <ul class="nav nav-pills">
+    {{#active-li currentWhen='blocks.index' role='presentation'}}
+      {{#link-to 'blocks.index'}}Blocks - <span class="text-orange">{{format-number model.maturedTotal}}</span>{{/link-to}}
+    {{/active-li}}
+    {{#active-li currentWhen='blocks.immature' role='presentation'}}
+      {{#link-to 'blocks.immature'}}Immature - <span class="text-maroon">{{format-number model.immatureTotal}}</span>{{/link-to}}
+    {{/active-li}}
+    {{#active-li currentWhen='blocks.pending' role='presentation'}}
+      {{#link-to 'blocks.pending'}}New Blocks - <span class="text-black">{{format-number model.candidatesTotal}}</span>{{/link-to}}
+    {{/active-li}}
+  </ul>
+  <br>
+{{outlet}}
+</div>

@@ -1,0 +1,30 @@
+
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+	  <div class="note note-success">
+		{{#if model.immature}}
+		<h4>Immature Blocks</h4>
+		<table class="table table-condensed table-striped">
+		  <thead>
+			<tr>
+			  <th>Height</th>
+			  <th>Login</th>
+			  <th>Time Found</th>
+			  <th>Variance</th>
+			  <th>Reward</th>
+			  <th>Type</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{{#each model.immature as |block|}}
+			  {{partial "blocks/block"}}
+			{{/each}}
+		  </tbody>
+		</table>
+		{{else}}
+		<h3>No immature blocks!</h3>
+		{{/if}}
+      </div>
+	</div>
+  </div>
+

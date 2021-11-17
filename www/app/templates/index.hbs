@@ -1,0 +1,84 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+	  <div class="note note-success">
+        <h4>Your Stats &amp; Payment History</h4>
+        <div class="input-group">
+          {{input value=cachedLogin class="form-control" placeholder="Enter Your Ethereum Classic Address"}}
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-etc" type="button" {{action 'lookup' cachedLogin}}>
+              <span style="display: inline;"><i class="fa fa-search"></i> Lookup</span>
+            </button>
+          </span>
+        </div>
+		<br>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-4">
+	  <div class="note note-success">
+	   <center>
+	    <div class="text-black"><h1>{{format-number stats.model.minersTotal}}</h1></div><small class="text-black"><b>ACTIVE</b></small> <small class="text-green"><u>MINERS</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h1>{{format-number stats.height}}</h1></div><small class="text-black"><b>BLOCKCHAIN</b></small> <small class="text-green"><u>HEIGHT</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h1><span>$ {{model.exchangedata.current_price}}</span></h1></div><small class="text-black"><b>CURRENT</b></small> <small class="text-green"><u>PRICE</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h1>{{format-hashrate stats.hashrate}}</h1></div><small class="text-black"><b>NETWORK</b></small> <small class="text-green"><u>HASHRATE</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h1>{{config.PoolFee}}</h1></div><small class="text-black"><b>POOL</b></small> <small class="text-green"><u>FEE</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-6 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h1>{{format-number stats.roundVariance style='percent'}}</h1></div><small class="text-black"><b>POOL</b></small> <small class="text-green"><u>LUCK</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-6">
+	  <div class="note note-success">
+	   <center>
+	    <h3>Pool Hashrate</h3>
+	     {{high-charts mode=mode chartOptions=chartOptions content=chartData}}
+	   </center>
+	  </div>
+	</div>
+	<br>
+    <div class="col-xs-12 col-md-6 pull-right">
+	  <div class="note note-success">
+	   <center>
+	    <h3>Network Difficulty</h3>
+	     {{high-charts mode=mode chartOptions=chartDiff content=chartData}}
+	   </center>
+	  </div>
+	</div>
+  </div>
+</div>

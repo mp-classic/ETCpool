@@ -1,0 +1,103 @@
+<br>
+<br>
+<br>
+{{outlet 'error' }}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-balance model.stats.pending}}<span class="text-green"> ETC</span></h2></div><small class="text-black"><b>CURRENT</b></small> <small class="text-green"><u>PAYMENT</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-balance model.24hreward}}<span class="text-green"> ETC</span></h2></div><small class="text-black"><b>LAST 24H</b></small> <small class="text-green"><u>REWARD</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-number model.paymentsTotal}}</h2></div><small class="text-black"><b>TOTAL</b></small> <small class="text-green"><u>PAYMENTS</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-balance model.stats.immature}} <span class="text-green"> ETC</span></h2></div><small class="text-black"><b>IMMATURE</b></small> <small class="text-green"><u>BALANCE</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-balance model.stats.balance}} <span class="text-green"> ETC</span></h2></div><small class="text-black"><b>PENDING</b></small> <small class="text-green"><u>BALANCE</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-balance model.stats.paid}} <span class="text-green"> ETC</span></h2></div><small class="text-black"><b>TOTAL</b></small> <small class="text-green"><u>PAID</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-number roundPercent style='percent'}}</h2></div><small class="text-black"><b>ROUND</b></small> <small class="text-green"><u>SHARE</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-number model.stats.blocksFound fallback='0'}}</h2></div><small class="text-black"><b>BLOCKS</b></small> <small class="text-green"><u>FOUND</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-4">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-relative applicationController.nextEpoch units="hour"}}</h2></div><small class="text-black"><b>NEXT</b></small> <small class="text-green"><u>EPOCH</u></small>
+	   </center>
+	  </div>
+	</div>
+    <div class="col-xs-12 col-md-12">
+	  <div class="note note-success">
+	   <center>
+		<div class="text-black"><h2>{{format-number model.workersOnline}} <span class="text-black">/</span> <span class="text-red">{{model.workersOffline}}</span></h2></div><small class="text-green"><b>ONLINE WORKERS </b></small> <small class="text-red"><u> OFLINE WORKERS</u></small>
+	   </center>
+	  </div>
+	</div>
+	<div class="col-xs-12 col-md-12">
+	  <div class="note note-success" role="alert">
+		<span class="sr-only">Notice:</span>
+		Your average hashrate will be smoothly adjusted until you have shares to fullfill estimation window.<br/>
+		There are two windows, long and short, first is equal to about 30 minutes and long window is usually equal to 3 hours.<br/>
+		Dead (sick) workers will be highlighted in a table of workers if they didn't submit a share for 1/2 of short window,
+		so you can perform maintenance of your rigs.
+	  </div>
+	</div>
+  </div>
+</div>
+
+<div class="container">
+  <ul class="nav nav-pills">
+    {{#active-li currentWhen='account.index' role='presentation'}}
+      {{#link-to 'account.index'}}Workers{{/link-to}}
+    {{/active-li}}
+    {{#active-li currentWhen='account.rewards' role='presentation'}}
+      {{#link-to 'account.rewards'}}Rewards{{/link-to}}
+    {{/active-li}}
+    {{#active-li currentWhen='account.payouts' role='presentation'}}
+      {{#link-to 'account.payouts'}}Payouts{{/link-to}}
+    {{/active-li}}
+  </ul>
+</div>
+<br>
+{{outlet}}
