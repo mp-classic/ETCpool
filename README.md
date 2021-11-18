@@ -1,2 +1,2 @@
-# ETCpool
- Ethereum Classic mining pool
+Loading...
+
